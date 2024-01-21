@@ -12,7 +12,7 @@ const Navbar = async () => {
       label: 'Home'
     },
     {
-      href: '/currently-own',
+      href: '/whats-in-my-toy-box',
       label: 'What\'s In My Toy Box'
     },
     {
