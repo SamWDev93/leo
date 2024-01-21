@@ -12,6 +12,10 @@ const Navbar = async () => {
       label: 'Home'
     },
     {
+      href: '/currently-own',
+      label: 'What\'s In My Toy Box'
+    },
+    {
       href: '/gift-ideas',
       label: 'Gift Ideas'
     },
@@ -22,7 +26,7 @@ const Navbar = async () => {
   ];
 
   return (
-    <nav className="p-2.5 flex justify-center items-center gap-10">
+    <nav className="p-2.5 flex justify-center items-center gap-6">
       {navbarItems.map((navbarItem, index) => {
         return (
           <NavbarItem
