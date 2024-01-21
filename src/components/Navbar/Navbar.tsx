@@ -1,7 +1,11 @@
+import { getSession } from "@auth0/nextjs-auth0";
+import Button from "@/components/Button/Button";
 import NavbarItem from "@/components/NavbarItem/NavbarItem";
 import { NavigationLink } from "@/interfaces/NavigationLink";
 
-const Navbar = () => {
+const Navbar = async () => {
+  const session = await getSession();
+  const user = session?.user;
   const navbarItems: NavigationLink[] = [
     {
       href: '/',
@@ -28,6 +32,11 @@ const Navbar = () => {
           />
         )
       })}
+      <Button
+        type="primary"
+        href={user ? '/api/auth/logout' : '/api/auth/login'}
+        label={user ? 'Logout' : 'Parent login'}
+      />
     </nav>
   );
 };
