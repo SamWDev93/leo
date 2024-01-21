@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { UserProvider } from '@auth0/nextjs-auth0/client';
 import Navbar from "@/components/Navbar/Navbar";
 import "./globals.css";
 
@@ -16,12 +17,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="h-full">
-      <body className={`${inter.className} h-full grid grid-rows-layout`}>
-        <Navbar />
-        <main>
-          {children}
-        </main>
-      </body>
+      <UserProvider>
+        <body className={`${inter.className} h-full grid grid-rows-layout`}>
+          <Navbar />
+          <main className="p-2.5">
+            {children}
+          </main>
+        </body>
+      </UserProvider>
     </html>
   );
 }
